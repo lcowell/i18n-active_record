@@ -73,7 +73,7 @@ module I18n
           end
 
           def available_locales
-            Translation.distinct.pluck(:locale).map(&:to_sym)
+            Translation.select("DISTINCT locale").pluck(:locale).map(&:to_sym)
           end
         end
 
